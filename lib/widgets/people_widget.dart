@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:popular/ui/person_details/person_details_screen.dart';
 
 
 
@@ -12,7 +13,7 @@ class PeopleWidget extends StatelessWidget {
       onTap: (){
         print(person.id);
 
-        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => PostDetailsScreen(movieId: post.id,)));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => PersonDetailsScreen(personId: person.id,)));
       },
       child: Padding(
         padding: const EdgeInsets.all(4.0),
