@@ -22,8 +22,8 @@ class PeopleListScreen extends StatelessWidget {
               itemCount: peopleListProvider.posts.results.length,
               itemBuilder: (ctx, index) {
                 final person = peopleListProvider.people;
-                print(post);
-                return PersonWidget(post: post,);
+
+                return PersonWidget(people: people,);
               },
             );
           }
