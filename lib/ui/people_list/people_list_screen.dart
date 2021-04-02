@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 import 'package:popular/ui/people_list/people_list_provider.dart';
+import 'package:popular/widgets/people_widget.dart';
 
 import 'package:provider/provider.dart';
 
@@ -12,7 +12,11 @@ class PeopleListScreen extends StatelessWidget {
   @override
 
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<PeopleListProvider>(
+  return Scaffold(
+        appBar: AppBar(
+        title: Text(title),
+    ),
+    body:ChangeNotifierProvider<PeopleListProvider>(
       create: (context)=> PeopleListProvider(),
       child: Consumer<PeopleListProvider>(
         builder: (buildContext,peopleListProvider,_){
@@ -22,9 +26,9 @@ class PeopleListScreen extends StatelessWidget {
             return ListView.builder(
               itemCount: peopleListProvider.people.results.length,
               itemBuilder: (ctx, index) {
-                final person = peopleListProvider.people;
-
-                return PersonWidget(people: people,);
+                final person = peopleListProvider.people.results[index];
+                print(person);
+                return PeopleWidget(person: person,);
               },
             );
           }
@@ -37,10 +41,13 @@ class PeopleListScreen extends StatelessWidget {
 
         },
       ),
-    );
+    )
+
+  ) ;
   }
 
 }
+
 
 
 

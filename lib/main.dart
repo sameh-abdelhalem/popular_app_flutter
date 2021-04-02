@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:popular/ui/post_list/people_list_screen.dart';
+import 'package:popular/ui/people_list/people_list_screen.dart';
 
 void main() {
   runApp(MyApp());
