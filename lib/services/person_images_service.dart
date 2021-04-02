@@ -9,7 +9,7 @@ class ImagesService{
 
 
 
-  Future<Details> fetchDetails(personId) async{
+  Future<Images> fetchImages(personId) async{
 
     final response = await http.get('https://api.themoviedb.org/3/person/${personId}/images?api_key=926adf3ba1b8d60fe713dc69db3b32ef');
     if(response.statusCode == 200){
