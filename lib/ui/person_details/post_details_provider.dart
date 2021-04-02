@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/models/details.dart';
-import 'package:flutter_provider/repositories/post_repository.dart';
+import 'package:popular/models/details.dart';
+import 'package:popular/repositories/people_repository.dart';
+
 
 class DetailsProvider extends ChangeNotifier{
   Details details;
-  PostRepository _postRepository = PostRepository();
-final int movieId;
-  DetailsProvider(this.movieId){
+  PeopleRepositry _peopleRepository = PeopleRepositry();
+final int personId;
+  DetailsProvider(this.personId){
 
     getDetails();
   }
 
   void getDetails() {
-    _postRepository.fetchDetails(movieId).then(
+    _peopleRepository.fetchDetails(personId).then(
             (newDetails){
           details = newDetails;
           notifyListeners();
