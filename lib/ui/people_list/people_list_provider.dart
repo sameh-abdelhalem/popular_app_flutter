@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/models/post.dart';
-import 'package:flutter_provider/repositories/post_repository.dart';
+import 'package:popular/models/person.dart';
+import 'package:popular/repositories/people_repository.dart';
 
-class PostsProvider extends ChangeNotifier{
-  Post posts;
-  PostRepository _postRepository = PostRepository();
 
-  PostsProvider(){
-    getPosts();
+class PeopleListProvider extends ChangeNotifier{
+  Person people;
+  PeopleRepositry _peopleRepository = PeopleRepositry();
+
+  PeopleListProvider(){
+    getPeople();
   }
 
-  void getPosts() {
-    _postRepository.fetchPosts().then(
-            (newPosts){
-          posts = newPosts;
+  void getPeople() {
+    _peopleRepository.fetchPeople().then(
+            (newPeople){
+          people = newPeople;
           notifyListeners();
         }
     );

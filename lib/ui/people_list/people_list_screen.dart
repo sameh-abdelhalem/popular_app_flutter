@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import 'package:popular/ui/people_list/people_list_provider.dart';
 
 import 'package:provider/provider.dart';
 
@@ -16,10 +17,10 @@ class PeopleListScreen extends StatelessWidget {
       child: Consumer<PeopleListProvider>(
         builder: (buildContext,peopleListProvider,_){
 
-          if (PeopleListProvider.people!=null) {
+          if (peopleListProvider.people!=null) {
 
             return ListView.builder(
-              itemCount: peopleListProvider.posts.results.length,
+              itemCount: peopleListProvider.people.results.length,
               itemBuilder: (ctx, index) {
                 final person = peopleListProvider.people;
 
