@@ -33,49 +33,39 @@ class PeopleWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Padding(
-                          //   padding: const EdgeInsets.all(2.0),
-                          //   child: Center(
-                          //       child: Text(
-                          //         person.name,
-                          //         textAlign: TextAlign.center,
-                          //         style: TextStyle(
-                          //             fontWeight: FontWeight.bold),
-                          //       )),
-                          // ),
-                          // // Padding(
-                          //   padding: const EdgeInsets.all(2.0),
-                          //   child: Center(
-                          //       child: Text(
-                          //         'Release on: ${ person.releaseDate}',
-                          //         textAlign: TextAlign.center,
-                          //         style: TextStyle(
-                          //             color:
-                          //             CupertinoColors.inactiveGray),
-                          //       )),
-                          // ),
-                          // Padding(
-                          //   padding: const EdgeInsets.all(2.0),
-                          //   child: Center(
-                          //       child: Text(
-                          //         'Rating: ${ post.voteAverage}',
-                          //         textAlign: TextAlign.center,
-                          //         style: TextStyle(
-                          //             color:
-                          //             CupertinoColors.inactiveGray),
-                          //       )),
-                          // ),
-                          // Padding(
-                          //   padding: const EdgeInsets.all(2.0),
-                          //   child: Center(
-                          //       child: Text(
-                          //         'Vote Count: ${ post.voteCount}',
-                          //         textAlign: TextAlign.center,
-                          //         style: TextStyle(
-                          //             color:
-                          //             CupertinoColors.inactiveGray),
-                          //       )),
-                          // ), // getTextWidgets( post.results[index].title),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Center(
+                                child: Text(
+                                  person.name,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Center(
+                                child: Text(
+                                  'Popularity: ${person.popularity}',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color:
+                                      CupertinoColors.inactiveGray),
+                                )),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Center(
+                                child: Text(
+                                  'View Details',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color:
+                                      CupertinoColors.inactiveGray),
+                                )),
+                          ), // getTextWidgets( post.results[index].title),
 
                         ],
                       ),
