@@ -16,7 +16,7 @@ class ImagesService{
       // return (json.decode(response.body) as List).map((e) => Post.fromJson(e)).toList();
       return   Images.fromJson(json.decode(response.body));
     }else{
-      throw Exception('FAILED TO LOAD POST');
+      throw Exception('FAILED TO LOAD IMAGE');
     }
   }
 }
