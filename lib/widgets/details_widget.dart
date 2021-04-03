@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popular/ui/person_details/person_details_screen.dart';
+import 'package:popular/ui/person_images/person_image_screen.dart';
 import 'package:popular/ui/person_images/person_images_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -33,9 +34,18 @@ class DetailsWidget extends StatelessWidget {
                             crossAxisCount: 2,
                             children: List.generate(imagesProvider.images.profiles.length, (index) {
                               final image = imagesProvider.images.profiles[index];
+                              final imageLink = 'https://image.tmdb.org/t/p/w500${image.filePath}';
+
                               return Center(
-                                child: SizedBox(
-                                     child: Image.network('https://image.tmdb.org/t/p/w500${image.filePath}',)),
+                                child: GestureDetector(
+
+                                onTap: (){
+
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => PersonImageScreen(imageLink: imageLink,)));
+                                  } ,
+                                  child: SizedBox(
+                                       child: Image.network(imageLink)),
+                                ),
                               );
                             }),
                           ) ,
