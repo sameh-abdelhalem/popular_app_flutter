@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:popular/ui/person_details/person_details_screen.dart';
+import 'package:popular/ui/person_images/person_images_provider.dart';
+import 'package:provider/provider.dart';
 
 class DetailsWidget extends StatelessWidget {
   final details;
@@ -10,21 +12,7 @@ class DetailsWidget extends StatelessWidget {
     return SingleChildScrollView(
         child: Column(
       children: [
-        Container(
-          height: 500,
-          child:GridView.count(
 
-            crossAxisCount: 2,
-            children: List.generate(100, (index) {
-              return Center(
-                child: Text(
-                  'Item $index',
-                  style: Theme.of(context).textTheme.headline5,
-                ),
-              );
-            }),
-          ) ,
-        ),
 
         Padding(
           padding: const EdgeInsets.all(4.0),
@@ -33,6 +21,28 @@ class DetailsWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12)),
               child: Column(
                 children: [
+                  ChangeNotifierProvider<ImagesProvider>(
+                    create: (context) => ImagesProvider(details.id),
+                    child: Consumer<ImagesProvider>(
+                      builder: (buildContext, imagesProvider, _){
+                        return (imagesProvider.images != null)?
+                        Container(
+                          height: 500,
+                          child:GridView.count(
+
+                            crossAxisCount: 2,
+                            children: List.generate(imagesProvider.images.profiles.length, (index) {
+                              final image = imagesProvider.images.profiles[index];
+                              return Center(
+                                child: SizedBox(
+                                     child: Image.network('https://image.tmdb.org/t/p/w500${image.filePath}',)),
+                              );
+                            }),
+                          ) ,
+                        )
+                        : Center(child: CircularProgressIndicator());
+                      },
+                    )),
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Row(
@@ -130,3 +140,7 @@ class DetailsWidget extends StatelessWidget {
     ));
   }
 }
+
+
+
+
