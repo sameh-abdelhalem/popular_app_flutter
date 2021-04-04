@@ -13,7 +13,7 @@ class PersonDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-        title: Text("Post details"),
+        title: Text("Person Details"),
     ),
     body:ChangeNotifierProvider<DetailsProvider>(
       create: (context)=> DetailsProvider(personId),
@@ -35,7 +35,8 @@ class PersonDetailsScreen extends StatelessWidget {
 
         },
       ),
-    ));
+    )
+    );
   }
 }
 
